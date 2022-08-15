@@ -4,13 +4,13 @@ const thoughtController = {
   getAllThoughts(req, res) {
     Thought.find({})
       .select("-__v")
-      .sort({ __id: -1 })
+      .sort({ _id: -1 })
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => res.status(400).json(err));
   },
 
   getThoughtById({ params }, res) {
-    Thought.findOne({ __id: params.id })
+    Thought.findOne({ _id: params.id })
       .select("-__v")
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
@@ -23,10 +23,10 @@ const thoughtController = {
 
   createThought({ params, body }, res) {
     Thought.create(body)
-      .then(({ __id }) => {
+      .then(({ _id }) => {
         return User.findOneAndUpdate(
-          { __id: params.userId },
-          { $push: { thoughts: __id } },
+          { _id: params.userId },
+          { $push: { thoughts: _id } },
           { new: true }
         );
       })
@@ -41,7 +41,7 @@ const thoughtController = {
   },
 
   updateThought({ params, body }, res) {
-    Thought.findOneAndUpdate({ __id: params.thoughtId }, body, {
+    Thought.findOneAndUpdate({ _id: params.thoughtId }, body, {
       new: true,
       runValidators: true,
     })
@@ -69,7 +69,7 @@ const thoughtController = {
 
   createReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-        { __id: params.thoughtId },
+        { _id: params.thoughtId },
         { $push: { reactions: body } },
         { new: true }
     )
@@ -85,7 +85,7 @@ const thoughtController = {
 
   deleteReaction({ params }, res) {
     Thought.findOneAndUpdate(
-        { __id: params.reactionId },
+        { _id: params.reactionId },
         { $pull: { reactions: { reactionId: params.reactionId } } },
         { new: true }
     )
