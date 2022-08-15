@@ -1,5 +1,5 @@
-const { Schema, model, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model, Types } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const ReactionSchema = new Schema(
   {
@@ -9,12 +9,12 @@ const ReactionSchema = new Schema(
     },
     reactionBody: {
       type: String,
-      Required: 'Text input is required',
+      Required: "Text input is required",
       maxLength: 280,
     },
     username: {
       type: String,
-      required: 'Username is required',
+      required: "Username is required",
     },
     createdAt: {
       type: Date,
@@ -33,7 +33,7 @@ const ThoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
-      required: 'Text is required for thought input',
+      required: "Text is required for thought input",
       minLength: 1,
       maxLength: 280,
     },
@@ -44,7 +44,7 @@ const ThoughtSchema = new Schema(
     },
     username: {
       type: String,
-      required: 'Username is required for thought input',
+      required: "Username is required for thought input",
     },
     reactions: [ReactionSchema],
   },
@@ -57,10 +57,10 @@ const ThoughtSchema = new Schema(
   }
 );
 
-ThoughtSchema.virtuals('reactionCount').get(function () {
+ThoughtSchema.virtuals("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thought = model('Thought', ThoughtSchema);
+const Thought = model("Thought", ThoughtSchema);
 
 module.exports = Thought;
