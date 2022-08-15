@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 
-// ! TEST EMAIL VALIDATION
+// ! Fix & test EMAIL VALIDATION
 
 // const validateEmail = (email) => {
 //     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -25,14 +25,18 @@ const UserSchema = new Schema(
             //     'Please provide a valid email address',
             // ],
         },
-        thoughts: {
-            type: Schema.Types.ObjectId,
-            ref: 'Thought'
-        },
-        friends: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     },
     {
         toJSON: {
@@ -42,6 +46,7 @@ const UserSchema = new Schema(
     }
 );
 
+// ! Fix virtual
 // UserSchema.virtual('friendCount').get(function () {
 //     return this.get('friends').length;
 // });
