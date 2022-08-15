@@ -86,10 +86,10 @@ const thoughtController = {
     .catch((err) => res.status(400).json(err));
   },
 
-  deleteReaction({ params }, res) {
+  deleteReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-        { _id: params.reactionId },
-        { $pull: { reactions: { reactionId: params.reactionId } } },
+        { _id: params.thoughtId },
+        { $pull: { reactions: { reactionId: body.reactionId } } },
         { new: true }
     )
     .then((dbThoughtData) => {
