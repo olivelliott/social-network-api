@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Thought } = require("../models");
 
 // !* BONUS: Remove a user's associated thoughts when user is deleted
 
@@ -51,9 +51,11 @@ const userController = {
       .catch((err) => res.status(400).json(err));
   },
 
-  deleteUser({ params }, res) {
-    User.findOneAndDelete({ _id: params.id })
-      // ? $pull statement to delete users associated thoughts
+  deleteUser({ params, body }, res) {
+    User.findOneAndDelete({ _id: params.id }, body)
+      .then((body) => {
+        return Thought.deleteMany({ username: { $in: body.username }})
+      })
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: "No user found with this id" });
