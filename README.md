@@ -7,12 +7,10 @@ An API for a social network web application where users can share their thoughts
 ## Table of Contents
 - [User Story](#user-story)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Media](#media)
 - [License](#license)
 - [Contributing](#contributing)
 - [Questions](#questions)
-- [Credits](#credits)
 
 ## User Story
 ```
@@ -23,7 +21,20 @@ SO THAT my website can handle large amounts of unstructured data
 
 ## Installation
 
+Please fork this repository over to your local system. Then follow these steps below to initialize the npm modules and necessary seeds for the database.
+
+1. Open your command line and ensure that you are in the root of this repository. Then type in the following prompts in this order:
+
+- `npm install`
+- `npm start`
+
 ## Media
+
+* [Initial Setup Walkthrough Video](https://drive.google.com/file/d/1R1afjH6vF5beWK88GP2D3jjugxziEtpW/view)
+* [Testing User Routes](https://drive.google.com/file/d/11mRO276wqpG6EmoKg3N1tciB2SQUHHZx/view)
+* [Testing Friend Routes](https://drive.google.com/file/d/1X8HkCE0FcdlYbnqswrQ3WAz27RbxR-HG/view)
+* [Testing Thought Routes](https://drive.google.com/file/d/1DATFbTBWDpWBDvWLcHNj6PKKI5102O-J/view)
+* [Testing Reaction Routes](https://drive.google.com/file/d/17qszR2d12jJtz0Cdl6OlsVJV3tb02-NU/view)
 
 ## License
 This application is licensed under the MIT license. Please click on the link below to learn more.
