@@ -30,6 +30,15 @@ Please fork this repository over to your local system. Then follow these steps b
 
 ## Media
 
+*User Routes*
+![User Routes](./assets/user-routes.png)
+
+*Thought Routes*
+![Thought Routes](./assets/thought-routes.png)
+
+
+### Walkthrough Videos
+
 * [Initial Setup Walkthrough Video](https://drive.google.com/file/d/1R1afjH6vF5beWK88GP2D3jjugxziEtpW/view)
 * [Testing User Routes](https://drive.google.com/file/d/11mRO276wqpG6EmoKg3N1tciB2SQUHHZx/view)
 * [Testing Friend Routes](https://drive.google.com/file/d/1X8HkCE0FcdlYbnqswrQ3WAz27RbxR-HG/view)
